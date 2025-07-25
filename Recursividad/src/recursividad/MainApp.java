@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package recursividad;
+
 import javax.swing.*;
 
 /*
@@ -19,9 +20,29 @@ import javax.swing.*;
     Rojo para asientos ocupados.
     Azul o dorado para asientos ocupados por pasajeros con nombre palíndromo.
  */
-public class MainApp extends JFrame{
-    private JButton Sell,Cancel,Dispatch,Print,View,Search;
+public class MainApp extends JFrame {
+
+    private JButton Sell, Cancel, Dispatch, Print, View, Search;
     private JLabel JLabel1;
-    
-    
+
+    public MainApp() {
+        setTitle("Spirit Airlines");
+        setSize(800, 800);
+        System.out.println(this.getHeight());
+        System.out.println(this.getWidth());
+        setLayout(null);
+
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+
+        Sell = new JButton();
+    }
+
+    public static void main(String[] args) {
+        MainApp main = new MainApp();
+
+    }
+
 }

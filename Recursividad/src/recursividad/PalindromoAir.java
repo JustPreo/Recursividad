@@ -47,8 +47,45 @@ public class PalindromoAir {
         
     }
     
-    public void income (int index) {
+    public double income (int index, double suma) {
+        if (index >= 30) {
+            return suma;
+        } else {
+            double finalAmount = tickets[index].getFinalAmount();
+            suma += finalAmount;
+            
+            return income (index + 1, suma);
+        }
+    }
+    
+    public boolean reset(int index) {
+        if (index >= 30) {
+            return true;
+        } else {
+            tickets[index] = null;
+            return reset(index + 1);
+        }
+    }
+    
+    public void sellTicket(String name) {
         
+    }
+    
+    public boolean cancelTicket(String name) {
+        int posAsiento = searchPassenger(name, 0);
+        
+        if (posAsiento != -1) {
+            tickets[posAsiento] = null;
+            return true;
+        } else {
+            String error = "Error: No se encontró dicho pasajero";
+            return false;
+        }
+    }
+    
+    public void dispatch() {
+        double totalGenerado = income(0,0);
+        reset(0);
     }
 
 }

@@ -125,7 +125,6 @@ public class MainApp extends JFrame {
                      {
                      botones[index].setBackground(Color.green);
                      }
-                     asientosOcupados--;
                      repaint();
                 }
                 else

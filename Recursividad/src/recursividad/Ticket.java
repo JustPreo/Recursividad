@@ -10,7 +10,7 @@ package recursividad;
  */
 public class Ticket {
     
-    private int name;
+    private String name;
     private double finalCostoTicket;
     private double originalCostoTicket;
     private boolean palindromo;
@@ -34,10 +34,45 @@ public class Ticket {
     print(): Imprime o muestra en la interfaz los datos del ticket: nombre, monto original, monto pagado, y si aplicó descuento.
     
     */
-    public Ticket (String name)
+    public Ticket (String name, double originalCostoTicket)
     {
-    
-    
+        this.name = name;
+        this.originalCostoTicket = originalCostoTicket;
+        
     }
+    public String getName()
+    {
+    return name;
+    }
+    
+    public double getFinalAmount()
+    {
+    return finalCostoTicket;
+    }
+    
+    public double getOriginalAmount()
+    {
+    return originalCostoTicket;
+    }
+    
+    public boolean isPalindrome()
+    {
+    return palindromo;
+    }
+    
+    public String print()
+    {
+        //Retornara nombre , monto original , monto pagado , aplica descuento?
+    String returnn = "Nombre:"+name+
+                     "\nMonto Original:"+originalCostoTicket+
+                     "\nMonto Pagado:"+finalCostoTicket+
+                     "\nAplica Descuento:"+palindromo;
+    return returnn;
+        
+    }
+    
+    
+    
+    
     
 }

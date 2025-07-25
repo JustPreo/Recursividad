@@ -27,7 +27,7 @@ import javax.swing.*;
 public class MainApp extends JFrame {
 
     private JButton Sell, Cancel, Dispatch, Print, View, Search;
-    private JLabel JLabel1;
+    private JLabel nombrePasajero;
     private JTextField nombreP;
     Ticket ticket;
     PalindromoAir palindrome;
@@ -50,6 +50,11 @@ public class MainApp extends JFrame {
         nombreP = new JTextField();
         nombreP.setBounds(0, 700, 150, 50);
         add(nombreP);
+        
+        nombrePasajero = new JLabel("Nombre del pasajero");
+        nombrePasajero.setBounds(20,650,150,50);
+        add(nombrePasajero);
+        
 
         //Creacion de botones
         Sell = new JButton();

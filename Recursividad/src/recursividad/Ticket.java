@@ -10,11 +10,20 @@ package recursividad;
  */
 public class Ticket {
     
+    private int name;
+    private double finalCostoTicket;
+    private double originalCostoTicket;
+    private boolean palindromo;
+    
     /*
+    Representa un boleto emitido para un pasajero.
+    Esta clase debe conservar tanto los datos utilizados 
+    al momento de la compra como los resultados calculados (por ejemplo, si recibió descuento).
+    
     Nombre del pasajero.
     Monto final pagado por el ticket.
     Monto original del ticket (antes del descuento).
-    Indicación si el nombre fue reconocido como palíndromo.
+    Indicación si el nombre fue reconocido como palíndromo. //Da un descuento si es palindromo
     
     Inicializa todos los atributos en base al nombre ingresado y el cálculo del sistema.
     
@@ -25,5 +34,10 @@ public class Ticket {
     print(): Imprime o muestra en la interfaz los datos del ticket: nombre, monto original, monto pagado, y si aplicó descuento.
     
     */
+    public Ticket (String name)
+    {
+    
+    
+    }
     
 }

@@ -56,7 +56,7 @@ public class Ticket {
     {
         if (palindromo)
         {
-        finalCostoTicket = (originalCostoTicket * 0.2)+originalCostoTicket; //El descuento lo puse en 20%
+        finalCostoTicket = originalCostoTicket-(originalCostoTicket * 0.2); //El descuento lo puse en 20%
         }
         else
         {

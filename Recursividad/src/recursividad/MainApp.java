@@ -85,28 +85,28 @@ public class MainApp extends JFrame {
         //Action Listeners
         Sell.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (!(nombreP.getText().equals(""))) {
+                if (!(nombreP.getText().equals("")) && asientosOcupados != 30) {
                     try {
 
                         palindrome.sellTicket(nombreP.getText());
-                        
-                        if (PalindromoAir.tickets[asientosOcupados].isPalindrome())
-                        {
-                        botones[asientosOcupados].setBackground(new Color(239,184,16));
+
+                        if (PalindromoAir.tickets[asientosOcupados].isPalindrome()) {
+                            botones[asientosOcupados].setBackground(new Color(239, 184, 16));
+                        } else {
+                            botones[asientosOcupados].setBackground(Color.red);
                         }
-                        else 
-                        {
-                        botones[asientosOcupados].setBackground(Color.red);
-                        }
-                        
+
                         asientosOcupados++;
                     } catch (InputMismatchException a) {
                         JOptionPane.showMessageDialog(null, "Ocupa ingresar un numero valido");
                     }
                     repaint();
-                } else {
+                } else if (nombreP.getText().equals("")){
                     JOptionPane.showMessageDialog(null, "No puedes dejar los requisitos vacios \n" + "                   Nombre ");
-
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(null, "ERROR:No hay asientos disponibles");
                 }
 
             }
@@ -114,30 +114,54 @@ public class MainApp extends JFrame {
 
         Cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                
 
             }
         });
 
         Dispatch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                palindrome.dispatch();
+                for (JButton variable : botones) {
+                    variable.setBackground(Color.green);
+                }
+                asientosOcupados = 0;
             }
         });
 
         Print.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                mostrarPasajerosSimples();
 
             }
         });
 
         View.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                double dinerodineros = palindrome.income(0,0);
+                JOptionPane.showMessageDialog(null, "Tu ingreso actual es de : "+dinerodineros);
+                
 
             }
         });
 
         Search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                
+                if (!(nombreP.getText().equals(""))){
+                int index = palindrome.searchPassenger (nombreP.getText(), 0);
+                
+                if (index != -1)
+                {
+                JOptionPane.showMessageDialog(null, "El pasajero esta en el asiento "+(index+1));
+                }
+                
+                else
+                {
+                JOptionPane.showMessageDialog(null,"ERROR:Pasajero no encontrado");
+                
+                }
+                }
 
             }
         });
@@ -174,6 +198,24 @@ public class MainApp extends JFrame {
 
         }
 
+    }
+
+    public void mostrarPasajerosSimples() {
+        String[] resultado = palindrome.printPassengers(0, new String[30]);
+        StringBuilder elStringComoTal = new StringBuilder();
+
+        for (int i = 0; i < resultado.length; i++) {
+            elStringComoTal.append("Asiento "+(i + 1)+":"+resultado[i]+"\n");
+        }
+
+        JTextArea muchoTexto = new JTextArea(elStringComoTal.toString());
+        muchoTexto.setRows(35);
+        muchoTexto.setColumns(50);
+        
+        muchoTexto.setEditable(false);
+        JScrollPane scroll = new JScrollPane(muchoTexto);
+
+        JOptionPane.showMessageDialog(null, scroll, "Lista de Pasajeros", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

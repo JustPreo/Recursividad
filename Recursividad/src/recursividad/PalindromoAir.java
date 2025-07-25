@@ -96,13 +96,15 @@ public class PalindromoAir {
             tickets[posAsiento] = null;
             return true;
         } else {
-            //falta mensaje de error
+            String error = "Error: nombre no encontrado";
+            JOptionPane.showMessageDialog(null, error);
             return false;
         }
     }
     
     public void dispatch() {
         double totalGenerado = income(0,0);
+        JOptionPane.showMessageDialog(null, "Ganancias totales: " + totalGenerado);
         reset(0);
     }
 

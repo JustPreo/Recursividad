@@ -100,7 +100,7 @@ public class MainApp extends JFrame {
                         } else {
                             botones[numero].setBackground(Color.red);
                         }
-
+                        nombreP.setText("");
                         asientosOcupados++;
                     } catch (InputMismatchException a) {
                         JOptionPane.showMessageDialog(null, "Ocupa ingresar un numero valido");
@@ -109,6 +109,7 @@ public class MainApp extends JFrame {
                 } else if (nombreP.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "No puedes dejar los requisitos vacios \n" + "                   Nombre ");
                 } else {
+                    nombreP.setText("");
                     JOptionPane.showMessageDialog(null, "ERROR:No hay asientos disponibles");
                 }
 

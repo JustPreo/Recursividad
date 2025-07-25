@@ -83,6 +83,7 @@ public class PalindromoAir {
         if (firstAvailable(0) == -1){
             String error = "Error: no hay asientos disponibles";
             JOptionPane.showMessageDialog(null, error);
+            
             return -1;
         } else {
             tickets[asiento] = new Ticket(name);

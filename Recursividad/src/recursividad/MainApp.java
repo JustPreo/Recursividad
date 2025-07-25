@@ -5,12 +5,23 @@
 package recursividad;
 import javax.swing.*;
 
-/**
- *
- * @author user
+/*
+    Botones funcionales:
+    "Sell Ticket"
+    "Cancel Ticket"
+    "Dispatch"
+    "Print Passengers"
+    "View Income"
+    "Search Passenger"
+    Área de mensajes o consola visual: Muestra confirmaciones, errores, resultados de operaciones y mensajes de sistema.
+    Colores recomendados:
+    Verde para asientos disponibles.
+    Rojo para asientos ocupados.
+    Azul o dorado para asientos ocupados por pasajeros con nombre palíndromo.
  */
 public class MainApp extends JFrame{
-    
+    private JButton Sell,Cancel,Dispatch,Print,View,Search;
+    private JLabel JLabel1;
     
     
 }

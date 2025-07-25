@@ -39,12 +39,12 @@ public class Ticket {
     {
         this.name = name;
         this.originalCostoTicket = originalCostoTicket;
-        if (PalindromoAir.isPalindrome(name))
-        {
-        
-        }
+        palindromo = isPalindrome();
+        finalCostoTicket = getFinalAmount();
         
     }
+    
+    
     public String getName()
     {
     return name;
@@ -52,6 +52,14 @@ public class Ticket {
     
     public double getFinalAmount()
     {
+        if (palindromo)
+        {
+        finalCostoTicket = (originalCostoTicket * 0.2)+originalCostoTicket; //El descuento lo puse en 20%
+        }
+        else
+        {
+        finalCostoTicket = originalCostoTicket;
+        }
     return finalCostoTicket;
     }
     
@@ -62,7 +70,8 @@ public class Ticket {
     
     public boolean isPalindrome()
     {
-    return palindromo;
+        PalindromoAir palindrom = new PalindromoAir();
+    return palindrom.isPalindrome(name);
     }
     
     public String print()

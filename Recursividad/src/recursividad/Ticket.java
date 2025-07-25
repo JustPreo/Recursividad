@@ -36,9 +36,9 @@ public class Ticket {
     print(): Imprime o muestra en la interfaz los datos del ticket: nombre, monto original, monto pagado, y si aplicó descuento.
     
     */
-    public Ticket (PalindromoAir palindrome , String name, double originalCostoTicket)
+    public Ticket (String name, double originalCostoTicket)
     {
-        this.palindrom = palindrome;
+        
         this.name = name;
         this.originalCostoTicket = originalCostoTicket;
         palindromo = isPalindrome();

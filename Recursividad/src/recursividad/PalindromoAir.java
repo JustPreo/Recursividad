@@ -20,7 +20,7 @@ public class PalindromoAir {
 
     public int firstAvailable(int index) {
 
-        if (index >= 30) {
+        if (index >= tickets.length) {
             return -1;
         }
         
@@ -31,7 +31,7 @@ public class PalindromoAir {
     }
     
     public int searchPassenger (String name, int index) {
-        if (index >= 30) {
+        if (index >= tickets.length) {
             return -1;
         }
         
@@ -42,12 +42,21 @@ public class PalindromoAir {
         }
     }
     
-    public void printPassengers(int index) {
-        
+    public String[] printPassengers(int index, String datos[]) {
+        if (index >= tickets.length) {
+            return datos;
+        } 
+        if (tickets[index] != null) {
+        datos[index] = "Nombre: " + tickets[index].getName() + " Monto original: " + tickets[index].getOriginalAmount()
+                + " Monto final: " + tickets[index].getFinalAmount();
+        } else {
+            datos[index] = "Asiento vacío";
+        }
+        return printPassengers(index + 1, datos);
     }
     
     public double income (int index, double suma) {
-        if (index >= 30) {
+        if (index >= tickets.length) {
             return suma;
         } 
         
@@ -59,7 +68,7 @@ public class PalindromoAir {
     }
     
     public boolean reset(int index) {
-        if (index >= 30) {
+        if (index >= tickets.length) {
             return true;
         } else {
             tickets[index] = null;
@@ -78,7 +87,7 @@ public class PalindromoAir {
             tickets[posAsiento] = null;
             return true;
         } else {
-            String error = "Error: No se encontró dicho pasajero";
+            //falta mensaje de error
             return false;
         }
     }

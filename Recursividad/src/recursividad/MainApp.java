@@ -173,6 +173,13 @@ public class MainApp extends JFrame {
                         JOptionPane.showMessageDialog(null, "ERROR:Pasajero no encontrado");
 
                     }
+                    
+                    
+                }
+                
+                else
+                {
+                JOptionPane.showMessageDialog(null, "ERROR:No puedes dejar el campo vacio");
                 }
 
             }

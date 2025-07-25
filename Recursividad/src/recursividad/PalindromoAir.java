@@ -27,7 +27,7 @@ public class PalindromoAir {
         }
         
         if (tickets[index] == null) {
-            return firstAvailable(index);
+            return index;
         }
         return firstAvailable(index + 1);
     }

@@ -90,7 +90,7 @@ public class MainApp extends JFrame {
 
                         palindrome.sellTicket(nombreP.getText());
 
-                        if (PalindromoAir.tickets[asientosOcupados].isPalindrome()) {
+                        if (PalindromoAir.tickets[asientosOcupados]!= null && PalindromoAir.tickets[asientosOcupados].isPalindrome()) {
                             botones[asientosOcupados].setBackground(new Color(239, 184, 16));
                         } else {
                             botones[asientosOcupados].setBackground(Color.red);
@@ -101,12 +101,10 @@ public class MainApp extends JFrame {
                         JOptionPane.showMessageDialog(null, "Ocupa ingresar un numero valido");
                     }
                     repaint();
-                } else if (nombreP.getText().equals("")){
+                } else if (nombreP.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "No puedes dejar los requisitos vacios \n" + "                   Nombre ");
-                }
-                else
-                {
-                JOptionPane.showMessageDialog(null, "ERROR:No hay asientos disponibles");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERROR:No hay asientos disponibles");
                 }
 
             }
@@ -114,7 +112,21 @@ public class MainApp extends JFrame {
 
         Cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+                if (!(nombreP.getText().equals(""))) {
+                    int index = palindrome.searchPassenger(nombreP.getText(), 0);
+                    System.out.println(index);
+                    palindrome.cancelTicket(nombreP.getText());
+                     if (index != -1)
+                     {
+                     botones[index].setBackground(Color.green);
+                     }
+                     asientosOcupados--;
+                     repaint();
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(null, "ERROR:Pasajero no encontrado");
+                }
 
             }
         });
@@ -138,29 +150,24 @@ public class MainApp extends JFrame {
 
         View.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                double dinerodineros = palindrome.income(0,0);
-                JOptionPane.showMessageDialog(null, "Tu ingreso actual es de : "+dinerodineros);
-                
+                double dinerodineros = palindrome.income(0, 0);
+                JOptionPane.showMessageDialog(null, "Tu ingreso actual es de : " + dinerodineros);
 
             }
         });
 
         Search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
-                if (!(nombreP.getText().equals(""))){
-                int index = palindrome.searchPassenger (nombreP.getText(), 0);
-                
-                if (index != -1)
-                {
-                JOptionPane.showMessageDialog(null, "El pasajero esta en el asiento "+(index+1));
-                }
-                
-                else
-                {
-                JOptionPane.showMessageDialog(null,"ERROR:Pasajero no encontrado");
-                
-                }
+
+                if (!(nombreP.getText().equals(""))) {
+                    int index = palindrome.searchPassenger(nombreP.getText(), 0);
+
+                    if (index != -1) {
+                        JOptionPane.showMessageDialog(null, "El pasajero esta en el asiento " + (index + 1));
+                    } else {
+                        JOptionPane.showMessageDialog(null, "ERROR:Pasajero no encontrado");
+
+                    }
                 }
 
             }
@@ -180,7 +187,7 @@ public class MainApp extends JFrame {
 
         for (int r = 1; r <= 6; r++) {
             for (int c = 1; c <= 5; c++) {
-                JButton asiento = new JButton();
+                JButton asiento = new JButton(""+(contador+1));
                 asiento.setBounds((r * 100) + 50, c * 100, 100, 100);
                 add(asiento);
 
@@ -205,13 +212,13 @@ public class MainApp extends JFrame {
         StringBuilder elStringComoTal = new StringBuilder();
 
         for (int i = 0; i < resultado.length; i++) {
-            elStringComoTal.append("Asiento "+(i + 1)+":"+resultado[i]+"\n");
+            elStringComoTal.append("Asiento " + (i + 1) + ":" + resultado[i] + "\n");
         }
 
         JTextArea muchoTexto = new JTextArea(elStringComoTal.toString());
         muchoTexto.setRows(35);
         muchoTexto.setColumns(50);
-        
+
         muchoTexto.setEditable(false);
         JScrollPane scroll = new JScrollPane(muchoTexto);
 

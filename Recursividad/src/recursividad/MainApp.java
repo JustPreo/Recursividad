@@ -28,7 +28,7 @@ public class MainApp extends JFrame {
 
     private JButton Sell, Cancel, Dispatch, Print, View, Search;
     private JLabel JLabel1;
-    private JTextField nombreP, precioP;
+    private JTextField nombreP;
     Ticket ticket;
     PalindromoAir palindrome;
     JButton[] botones;
@@ -50,10 +50,6 @@ public class MainApp extends JFrame {
         nombreP = new JTextField();
         nombreP.setBounds(0, 700, 150, 50);
         add(nombreP);
-        
-        precioP = new JTextField();
-        precioP.setBounds(300, 700, 150, 50);
-        add(precioP);
 
         //Creacion de botones
         Sell = new JButton();
@@ -89,23 +85,28 @@ public class MainApp extends JFrame {
         //Action Listeners
         Sell.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (!(precioP.getText().equals("") && nombreP.getText().equals(""))) {
+                if (!(nombreP.getText().equals(""))) {
                     try {
-                        double precio = Double.parseDouble(precioP.getText());
-                        Ticket ticket = new Ticket(nombreP.getText(), precio);
-                        palindrome.firstAvailable(asientosOcupados);
+
+                        palindrome.sellTicket(nombreP.getText());
+                        
+                        if (PalindromoAir.tickets[asientosOcupados].isPalindrome())
+                        {
+                        botones[asientosOcupados].setBackground(new Color(239,184,16));
+                        }
+                        else 
+                        {
                         botones[asientosOcupados].setBackground(Color.red);
+                        }
+                        
                         asientosOcupados++;
                     } catch (InputMismatchException a) {
                         JOptionPane.showMessageDialog(null, "Ocupa ingresar un numero valido");
                     }
-repaint();
-                }
-                
-                else
-                {
-                JOptionPane.showMessageDialog(null, "No puedes dejar los requisitos vacios \n"+ "Nombre Y Precio");
-                
+                    repaint();
+                } else {
+                    JOptionPane.showMessageDialog(null, "No puedes dejar los requisitos vacios \n" + "                   Nombre ");
+
                 }
 
             }

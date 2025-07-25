@@ -1,8 +1,10 @@
 package recursividad;
 
+import javax.swing.JOptionPane;
+
 public class PalindromoAir {
 
-    private Ticket tickets[] = new Ticket[30];
+    public static Ticket tickets[] = new Ticket[30];
 
     public boolean isPalindrome(String name) {
 
@@ -77,12 +79,13 @@ public class PalindromoAir {
     }
     
     public void sellTicket(String name) {
+        int asiento = firstAvailable(0);
         if (firstAvailable(0) == -1){
             String error = "Error: no hay asientos disponibles";
+            JOptionPane.showMessageDialog(null, error);
         } else {
-            if (isPalindrome(name)) {
-                
-            }
+            tickets[asiento] = new Ticket(name);
+            
         }
     }
     

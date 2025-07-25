@@ -18,7 +18,6 @@ public class Recursividad {
         MainApp main1 = new MainApp(palindromo);
         
         
-        
     }
     
 }

@@ -7,7 +7,7 @@ public class PalindromoAir {
     public boolean isPalindrome(String name) {
 
         if (name.length() <= 1) {
-            return false;
+            return true;
         }
 
         if (name.charAt(0) == name.charAt(name.length() - 1)) {
@@ -77,7 +77,13 @@ public class PalindromoAir {
     }
     
     public void sellTicket(String name) {
-        
+        if (firstAvailable(0) == -1){
+            String error = "Error: no hay asientos disponibles";
+        } else {
+            if (isPalindrome(name)) {
+                
+            }
+        }
     }
     
     public boolean cancelTicket(String name) {

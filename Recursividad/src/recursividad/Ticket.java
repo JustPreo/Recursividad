@@ -72,8 +72,9 @@ public class Ticket {
     
     public boolean isPalindrome()
     {
-         
+        palindrom = new PalindromoAir();
     return palindrom.isPalindrome(name);
+    
     }
     
     public String print()

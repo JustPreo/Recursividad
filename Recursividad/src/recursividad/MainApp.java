@@ -89,15 +89,17 @@ public class MainApp extends JFrame {
         //Action Listeners
         Sell.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (precioP.getText() != "" && nombreP.getText() != "") {
+                if (!(precioP.getText().equals("") && nombreP.getText().equals(""))) {
                     try {
                         double precio = Double.parseDouble(precioP.getText());
                         Ticket ticket = new Ticket(nombreP.getText(), precio);
                         palindrome.firstAvailable(asientosOcupados);
+                        botones[asientosOcupados].setBackground(Color.red);
+                        asientosOcupados++;
                     } catch (InputMismatchException a) {
                         JOptionPane.showMessageDialog(null, "Ocupa ingresar un numero valido");
                     }
-
+repaint();
                 }
                 
                 else

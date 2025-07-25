@@ -15,6 +15,8 @@ public class Recursividad {
      */
     public static void main(String[] args) {
         PalindromoAir palindromo = new PalindromoAir();
+        MainApp main1 = new MainApp(palindromo);
+        
         
         
     }

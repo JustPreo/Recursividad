@@ -93,12 +93,12 @@ public class MainApp extends JFrame {
                 if (!(nombreP.getText().equals("")) && asientosOcupados != 30) {
                     try {
 
-                        palindrome.sellTicket(nombreP.getText());
+                        int numero = palindrome.sellTicket(nombreP.getText());
 
-                        if (PalindromoAir.tickets[asientosOcupados]!= null && PalindromoAir.tickets[asientosOcupados].isPalindrome()) {
-                            botones[asientosOcupados].setBackground(new Color(239, 184, 16));
+                        if (PalindromoAir.tickets[numero]!= null && PalindromoAir.tickets[numero].isPalindrome()) {
+                            botones[numero].setBackground(new Color(239, 184, 16));
                         } else {
-                            botones[asientosOcupados].setBackground(Color.red);
+                            botones[numero].setBackground(Color.red);
                         }
 
                         asientosOcupados++;
@@ -126,6 +126,7 @@ public class MainApp extends JFrame {
                      botones[index].setBackground(Color.green);
                      }
                      repaint();
+                     asientosOcupados--;
                 }
                 else
                 {

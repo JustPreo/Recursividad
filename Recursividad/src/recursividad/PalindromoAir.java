@@ -6,7 +6,7 @@ public class PalindromoAir {
 
     public boolean isPalindrome(String name) {
 
-        if (name.length() == 1) {
+        if (name.length() <= 1) {
             return false;
         }
 
@@ -25,10 +25,9 @@ public class PalindromoAir {
         }
         
         if (tickets[index] == null) {
-            return firstAvailable(index + 1);
-        } else {
-            return index;
+            return firstAvailable(index);
         }
+        return firstAvailable(index + 1);
     }
     
     public int searchPassenger (String name, int index) {
@@ -36,7 +35,7 @@ public class PalindromoAir {
             return -1;
         }
         
-        if (tickets[index].getName().equalsIgnoreCase(name)) {
+        if (tickets[index] != null && tickets[index].getName().equalsIgnoreCase(name)) {
             return index;
         } else {
             return searchPassenger (name, index + 1);
@@ -50,12 +49,13 @@ public class PalindromoAir {
     public double income (int index, double suma) {
         if (index >= 30) {
             return suma;
-        } else {
+        } 
+        
+        if (tickets[index] != null) {
             double finalAmount = tickets[index].getFinalAmount();
             suma += finalAmount;
-            
-            return income (index + 1, suma);
         }
+        return income (index + 1, suma);
     }
     
     public boolean reset(int index) {

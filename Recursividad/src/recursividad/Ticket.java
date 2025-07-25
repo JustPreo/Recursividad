@@ -39,7 +39,7 @@ public class Ticket {
     {
         this.name = name;
         this.originalCostoTicket = originalCostoTicket;
-        if ()
+        if (PalindromoAir.isPalindrome(name))
         {
         
         }

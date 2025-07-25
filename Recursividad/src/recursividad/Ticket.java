@@ -14,6 +14,7 @@ public class Ticket {
     private double finalCostoTicket;
     private double originalCostoTicket;
     private boolean palindromo;
+    int descuento;
     
     /*
     Representa un boleto emitido para un pasajero.
@@ -38,6 +39,10 @@ public class Ticket {
     {
         this.name = name;
         this.originalCostoTicket = originalCostoTicket;
+        if (PalindromoAir.isPalindrome(name))
+        {
+        
+        }
         
     }
     public String getName()

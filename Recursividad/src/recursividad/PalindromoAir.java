@@ -3,13 +3,18 @@ package recursividad;
 public class PalindromoAir {
     private Ticket tickets[] = new Ticket[30];
     
-    public boolean isPalindrome(String name, int index) {
+    public boolean isPalindrome(String name) {
         
-        if (name.charAt(index) != name.charAt(name.length() - index)){
+        if (name.length() == 1){
             return false;
         }
         
-        return true;
+        if (name.charAt(0) == name.charAt(name.length() - 1)) {
+            return isPalindrome (name.substring(1, name.length() - 1));
+        } else {
+            return false;
+        }
+        
     }
     
 }
